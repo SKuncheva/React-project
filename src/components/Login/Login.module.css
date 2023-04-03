@@ -9,7 +9,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
 .formLoginWrapper {
@@ -49,6 +48,7 @@
   border: 1px solid white;
   border-radius: 18px;
   color: #fff;
+  text-shadow: 1px 1px #b6b7b8;
   background: linear-gradient(to right, #f1dbd2 0%, #f8ede9 100%);
   font-size: 20px;
   padding: 8px 60px;
@@ -67,6 +67,8 @@
   border-radius: 18px;
   font-size: 20px;
 }
+
+
 .icon {
   display: inline-block;
   margin: 10px;

@@ -9,7 +9,7 @@ export const Billboard = () => {
   useEffect(() => {
     bann.getBanner().then((result) => {
       setBanner(result);
-      console.log(result);
+      // console.log(result);
     });
   }, []);
 
@@ -45,7 +45,7 @@ export const Billboard = () => {
       </div>
 
       <div className={style.arrowRight}>
-        <i class="fas fa-chevron-right" onClick={clickRight} />
+        <i className="fas fa-chevron-right" onClick={clickRight} />
       </div>
     </div>
   );

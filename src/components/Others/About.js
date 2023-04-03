@@ -12,8 +12,8 @@ export const About = () => {
 
       <div className={style.text}>
         <ul className={style.elWrapper}>
-          <li className={style.el}>
-            <i className="fas fa-hand-holding-heart"></i> Грижа
+          <li className={style.el}> 
+            <h3>Грижа</h3>
             <p>
               Ние се грижим за клиентите си като им предлагаме индивидуален
               здравен съвет и ефективно обслужване.
@@ -21,7 +21,8 @@ export const About = () => {
           </li>
 
           <li className={style.el}>
-            <i className="fas fa-hand-holding-heart"></i> Доверие
+
+            <h3> Доверие</h3>
             <p>
               При нас клиентите се чувстват в спокойна, открита и дружелюбна
               среда.
@@ -29,7 +30,8 @@ export const About = () => {
           </li>
 
           <li className={style.el}>
-            <i className="fas fa-hand-holding-heart"></i> Богат избор
+
+            <h3> Богат избор</h3>
             <p>
               Предлагаме богат избор от различни брандове с качествени продукти
               на добра стойност, които клиентите обичат.
@@ -37,7 +39,8 @@ export const About = () => {
           </li>
 
           <li className={style.el}>
-            <i className="fas fa-hand-holding-heart"></i> Иновативност
+
+            <h3>Иновативност</h3>
             <p>
               Въвеждаме нови и иновативни продукти и услуги с грижа към нашите
               клиенти.
@@ -45,7 +48,7 @@ export const About = () => {
           </li>
 
           <li className={style.el}>
-            <i className="fas fa-hand-holding-heart"></i> Отдаденост
+             <h3>Отдаденост</h3>
             <p>
               Ние печелим доверието, защото работим с вдъхновение, екипност и
               професионализъм, мислим за нуждите на клиента и ги поставяме на

@@ -19,9 +19,10 @@
   border-radius: 15px;
   display: flex;
   justify-content:center;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
   position: relative;
+  
 }
 
 .userIcon {
@@ -46,7 +47,6 @@
   border-radius: 32px;
   border-color: #fbf4f1;
   font-size: 18px;
-
   padding: 10px;
 }
 .button {
@@ -54,6 +54,7 @@
     border: 1px solid white;
     border-radius: 18px;
     color: #fff;
+    text-shadow: 1px 1px #b6b7b8;
     background: linear-gradient(to right, #f1dbd2 0%, #f8ede9 100%);
     font-size: 20px;
     padding: 8px 60px;
@@ -66,4 +67,23 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-left: 13px;
+}
+.email{
+  margin-bottom: 10px;
+  margin-left: 13px;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+.gender{
+ display: flex;
+ flex-direction: row;
+  margin-left: 15px;
+  font-size: 20px;
+  color: #757575;
+}
+.genderWoman{
+
+  margin-left: 15px;
 }
