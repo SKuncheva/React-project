@@ -14,24 +14,28 @@ export const ProductDetail = () => {
   useEffect(() => {
     details.product(id).then((product) => {
       setCurrentProduct(product);
-      // console.log(product);
     });
   }, [id]);
 
   const onClikBuyButton=()=>{}
-
+// console.log(currentProduct);
   return (
     <div className={style.wrapper}>
       <div className={style.text}>
-        <h1 className={style.title}>{currentProduct[0]}</h1>
-        <p className={style.subTitle}>{currentProduct[1]}</p>
-        <p className={style.textEl}>{currentProduct[2]}</p>
+        <h1 className={style.title}>{currentProduct[1]}</h1>
+        <p className={style.subTitle}>{currentProduct[2]}</p>
+        <p className={style.textEl}>{currentProduct[7]}</p>
 {/* -------------------------Buy------------------------------ */}
         <div className={style.buy}>
-          <p>{currentProduct[3]} мл.</p>
-          <input type="text" placeholder="бр." className={style.number} />
+          <p>{currentProduct[4]} мл.</p>
+{/*
+ category: currentProduct[3],  
+ _ownerId: currentProduct[0],  
+ _createdOn:currentProduct[8], 
+_id: _createdOn:currentProduct[9]
+*/}
           <p className={style.price}>
-            {currentProduct[7]} <span>лв.</span>
+            {currentProduct[5]} <span>лв.</span>
           </p>
         </div>
       </div>
@@ -43,8 +47,8 @@ export const ProductDetail = () => {
 {/* ------------------------- Image----------------------- */}
       <div className={style.imgWrapper}>
         <img
-          src={currentProduct[8]}
-          alt={currentProduct[0]}
+          src={currentProduct[6]}
+          alt={currentProduct[1]}
           className={style.img}
         />
       </div>

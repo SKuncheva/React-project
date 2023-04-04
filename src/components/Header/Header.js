@@ -42,8 +42,13 @@ export const Header = () => {
           {/* -------------------------------User buttons------------------------------------- */}
 
           <div className={style.users_element}>
-
-            {authenticate.accessToken && <span className={style.emailName}>{authenticate.firstName} {authenticate.lastName}</span>}
+            {authenticate.accessToken && (
+              <Link to="/profile" style={{textDecoration:'none'}}>
+              <span className={style.emailName}>
+                {authenticate.firstName} {authenticate.lastName}
+              </span>
+              </Link>
+            )}
 
             {!authenticate.accessToken ? (
               <li className={style.user_el}>
@@ -51,27 +56,23 @@ export const Header = () => {
                   <i className="fas fa-sign-in-alt" /> Вход
                 </Link>
               </li>
-            ) : 
-            (
+            ) : (
               <>
-              <li className={style.user_el}>
-                <Link to="/create" className={style.element_user}>
-                  <i
-                    className="fas fa-plus"
-                    style={{ margin: "0 2px" }}
-                  />
-                  Добави
-                </Link>
-              </li>
-              <li className={style.user_el}>
-                <Link to="/logout" className={style.element_user}>
-                  <i
-                    className="fas fa-sign-out-alt"
-                    style={{ margin: "0 2px" }}
-                  />
-                  Изход
-                </Link>
-              </li>
+                <li className={style.user_el}>
+                  <Link to="/create" className={style.element_user}>
+                    <i className="fas fa-plus" style={{ margin: "0 2px" }} />
+                    {/* Добави */}
+                  </Link>
+                </li>
+                <li className={style.user_el}>
+                  <Link to="/logout" className={style.element_user}>
+                    <i
+                      className="fas fa-sign-out-alt"
+                      style={{ margin: "0 2px" }}
+                    />
+                    {/* Изход */}
+                  </Link>
+                </li>
               </>
             )}
           </div>

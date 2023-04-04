@@ -45,13 +45,21 @@ export const Register = () => {
 
           <div className={style.gender}>
             <div className={style.genderMan}>
-              <input type="radio" name="gender" value='Мъж'
-            onChange={changeHandler} />
+              <input
+                type="radio"
+                name="gender"
+                value="Мъж"
+                onChange={changeHandler}
+              />
               Мъж
             </div>
             <div className={style.genderWoman}>
-              <input type="radio" name="gender" value='Жена'
-            onChange={changeHandler}/>
+              <input
+                type="radio"
+                name="gender"
+                value="Жена"
+                onChange={changeHandler}
+              />
               Жена
             </div>
           </div>
@@ -95,7 +103,7 @@ export const Register = () => {
               name="password"
               placeholder="Парола"
               value={values.password}
-                onChange={changeHandler}
+              onChange={changeHandler}
             />
 
             <div className={style.icon}>

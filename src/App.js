@@ -14,6 +14,7 @@ import { useNavigate } from "react-router-dom";
 import { Logout } from "./components/Logout/Logout";
 import { CreateProduct } from "./components/CreateProduct/CreateProduct";
 import { useStorige } from "./hooks/storigeHook";
+import { Profile } from "./components/Profile/Profile";
 
 function App() {
   const [authenticate, setAuthenticate] = useStorige("authenticate", {});
@@ -63,6 +64,7 @@ function App() {
           <Route path="/products/:id" element={<ProductDetail />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/create" element={<CreateProduct />} />
           <Route path="/about" element={<About />} />
           <Route path="/protection" element={<Protection />} />

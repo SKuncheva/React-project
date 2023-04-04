@@ -55,12 +55,7 @@
   color: red;
   font-weight: 700;
 }
-.number {
-  max-width: 50px;
-  min-height: 28px;
-  margin-left: 310px;
-  text-align: center;
-}
+
 .button {
   position: absolute;
   bottom: -20px;
