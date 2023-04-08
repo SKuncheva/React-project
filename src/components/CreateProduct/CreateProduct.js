@@ -3,7 +3,9 @@ import style from "./CreateProduct.module.css";
 import * as create from "../../services/createProductService";
 import { useNavigate } from "react-router-dom";
 
+
 export const CreateProduct = () => {
+
   const [newProduct, setNewProduct] = useState({
     title: "",
     brand: "",
@@ -15,6 +17,7 @@ export const CreateProduct = () => {
   });
 
   const navigate = useNavigate();
+
   const onChangeProduct = (e) => {
     setNewProduct((state) => ({ ...state, [e.target.name]: e.target.value }));
   };

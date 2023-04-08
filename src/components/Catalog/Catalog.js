@@ -19,7 +19,7 @@ export const Catalog = () => {
       <div>
         <img src={img} alt='Catalog' className={style.imgCatalog}/>
       </div>
-      <h1 className={style.title}>Всички Продукти</h1>
+      <h1 className={style.title}>Продукти</h1>
       <ul className={style.ulWrapper}>
         {allProducts.map((x) => (
           <li key={x._id} 

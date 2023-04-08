@@ -28,17 +28,12 @@ export const Header = () => {
               Продукти
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="/promo" className={style.element}>
               Промоции
             </Link>
-          </li>
-          {/* <li>
-            <Link to="/contact" className={style.element}>
-              Контакти
-            </Link>
           </li> */}
-
+        
           {/* -------------------------------User buttons------------------------------------- */}
 
           <div className={style.users_element}>
@@ -58,6 +53,12 @@ export const Header = () => {
               </li>
             ) : (
               <>
+              <li className={style.user_el}>
+                  <Link to="/likes" className={style.element_user}>
+                    <i className="far fa-heart" style={{ margin: "0 2px" }} />
+                    {/* like */}
+                  </Link>
+                </li>
                 <li className={style.user_el}>
                   <Link to="/create" className={style.element_user}>
                     <i className="fas fa-plus" style={{ margin: "0 2px" }} />

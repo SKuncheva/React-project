@@ -3,24 +3,21 @@ import { Link } from "react-router-dom";
 import userIcon from "./image/user.png";
 import { UserAuthenticate } from "../../context/context";
 import { useContext } from "react";
-import {useForm} from '../../hooks/formStateHook'
-
+import { useForm } from "../../hooks/formStateHook";
 
 export const Login = () => {
-  const {onLoginSubmitHandler}= useContext(UserAuthenticate)
-  const {values, changeHandler}=
-  useForm(
-    {email:'', 
-    password:''},
-    onLoginSubmitHandler )
+  const { onLoginSubmitHandler } = useContext(UserAuthenticate);
+  const { values, changeHandler } = useForm(
+    { email: "", 
+    password: "" },
+    onLoginSubmitHandler
+  );
 
-    const onFormSubmit = (e) => {
-      e.preventDefault();
-      onLoginSubmitHandler(values);
+  const onFormSubmit = (e) => {
+    e.preventDefault();
+    onLoginSubmitHandler(values);
+  };
 
-    }; 
-  
- 
   return (
     <div className={style.wrapper}>
       <form
@@ -63,12 +60,7 @@ export const Login = () => {
         </div>
         {/* -------------------------------Button Login--------------------------------------- */}
         <div>
-          <button
-            className={style.button}
-            // onClick={}
-          >
-            Вход
-          </button>
+          <button className={style.button}>Вход</button>
         </div>
         {/* ---------------------------------Register----------------------------------------- */}
         <div className={style.registerLink}>
