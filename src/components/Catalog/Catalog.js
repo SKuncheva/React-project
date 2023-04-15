@@ -21,8 +21,8 @@ export const Catalog = () => {
       </div>
       <h1 className={style.title}>Продукти</h1>
       <ul className={style.ulWrapper}>
-        {allProducts.map((x) => (
-          <li key={x._id} 
+        {allProducts.map((x, index) => (
+          <li key={index} 
           className={style.li}>
             <Product {...x} />
           </li>

@@ -2,7 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import * as details from "../../services/productDetalService";
 import * as editProduct from "../../services/editProduct";
-
+import style from './Edit.module.css'
 export const EditProduct = () => {
   const { id } = useParams();
   const [oldProduct, setOldProduct] = useState('');
@@ -29,21 +29,17 @@ export const EditProduct = () => {
   
   };
 
-  // const newChange = (e) => {
-   
-  //   console.log(newInput);
-  //   setOldProduct(newInput)
-  // };
+
 
   return (
     <>
-      <section>
-        <h1>Редактиране на артикул</h1>
+      <section className={style.wrapper}>
+        <h1 className={style.h1}>Редактиране на артикул</h1>
 
         <form onSubmit={onSubmitChanges}>
-          <div>
+          <div className={style.elements}>
             <input
-              //   className={style.inputs}
+                className={style.inputs}
               type="text"
               name="title"
               defaultValue={oldProduct.title}
@@ -51,47 +47,47 @@ export const EditProduct = () => {
             />
 
             <input
-              //   className={style.inputs}
+                className={style.inputs}
               type="text"
               name="brand"
               defaultValue={oldProduct.brand}
             />
 
             <input
-              //   className={style.inputs}
+                className={style.inputs}
               type="text"
               name="category"
               defaultValue={oldProduct.category}
             />
 
             <input
-              //   className={style.inputs}
+                className={style.inputs}
               type="text"
               name="ml"
               defaultValue={oldProduct.ml}
             />
 
             <input
-              //   className={style.inputs}
+                className={style.inputs}
               type="text"
               name="price"
               defaultValue={oldProduct.price}
             />
 
             <input
-              //   className={style.inputs}
+                className={style.inputs}
               type="text"
               name="imageUrl"
               defaultValue={oldProduct.imageUrl}
             />
 
             <textarea
-              // className={style.textarea}
+              className={style.textarea}
               name="description"
               defaultValue={oldProduct.description}
             />
           </div>
-          <button type="submit">Запамети</button>
+          <button className={style.button} type="submit">Запамети</button>
         </form>
       </section>
     </>

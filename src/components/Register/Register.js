@@ -1,11 +1,20 @@
 import style from "./Register.module.css";
 import userIcon from "./img/user.png";
 import { UserAuthenticate } from "../../context/context";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "../../hooks/formStateHook";
 
 export const Register = () => {
   const { onRegister } = useContext(UserAuthenticate);
+  const [validate, setValidate] = useState({
+    nameInput: "",
+    isActive: false,
+  });
+  const [validatePas, setValidatePas] = useState({
+    samePasswords: "",
+    isActive: false,
+  });
+
   const { values, changeHandler } = useForm(
     {
       email: "",
@@ -17,6 +26,32 @@ export const Register = () => {
     },
     onRegister
   );
+  const validateInputName = (e) => {
+    if (values[e.target.name].length < 2 || values[e.target.name].length > 25) {
+      setValidate((x) => ({
+        ...x,
+        nameInput: `The "${e.target.value}"  must be between 2 and 25 letters`,
+        isActive: true,
+      }));
+    } else if (
+      values[e.target.name].length > 2 ||
+      values[e.target.name].length < 25
+    ) {
+      setValidate((x) => ({ ...x, isActive: false }));
+    }
+  };
+
+  const validatePasswords = (e) => {
+    if (values.password !== values[e.target.name]) {
+      setValidatePas((x) => ({
+        ...x,
+        samePasswords: "Passwords are not the same",
+        isActive: true,
+      }));
+    } else if (values.password === values[e.target.name]) {
+      setValidatePas((x) => ({ ...x, isActive: false }));
+    }
+  };
 
   const onRegisterSubmit = (e) => {
     e.preventDefault();
@@ -78,6 +113,7 @@ export const Register = () => {
               placeholder="Име"
               value={values.firstName}
               onChange={changeHandler}
+              onBlur={validateInputName}
             />
 
             <div className={style.icon}>
@@ -88,8 +124,17 @@ export const Register = () => {
                 placeholder="Фамилия"
                 value={values.lastName}
                 onChange={changeHandler}
+                onBlur={validateInputName}
               />
             </div>
+
+            {validate.isActive && (
+              <p
+                style={{ color: "red", fontWeight: "bold", marginLeft: "55px" }}
+              >
+                {validate.nameInput}
+              </p>
+            )}
           </div>
 
           {/* -------------------Password-------------------- */}
@@ -104,6 +149,7 @@ export const Register = () => {
               placeholder="Парола"
               value={values.password}
               onChange={changeHandler}
+              onBlur={validatePasswords}
             />
 
             <div className={style.icon}>
@@ -114,8 +160,16 @@ export const Register = () => {
                 placeholder="Потвърдете паролата"
                 value={values.confirmPassword}
                 onChange={changeHandler}
+                onBlur={validatePasswords}
               />
             </div>
+            {validatePas.isActive && (
+              <p
+                style={{ color: "red", fontWeight: "bold", marginLeft: "55px" }}
+              >
+                {validatePas.samePasswords}
+              </p>
+            )}
           </div>
           {/* ----------------Button------------------------- */}
           <div>

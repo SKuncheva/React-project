@@ -8,30 +8,33 @@ import * as request from "../../services/requester";
 
 export const Product = ({ _id, imageUrl, title, brand, price, _ownerId }) => {
   const { authenticate } = useContext(UserAuthenticate);
-  const [like, setLike] = useState(false)
+  const [like, setLike] = useState(false);
 
   useEffect(() => {
-    request.get(`http://localhost:3030/data/likes/?where=idProduct IN ("${_id}")  AND _ownerId  IN ("${authenticate._id}")`).then(
-      (result) => {
-        console.log(result)
-        if (result && result[0].user) {
-          setLike(true)
+    request
+      .get(
+        `http://localhost:3030/data/likes/?where=idProduct IN ("${_id}")  AND _ownerId  IN ("${authenticate._id}")`
+      )
+      .then((result) => {
+        if (result[0] === undefined) {
+          return {};
+        } else if (result && result[0].user) {
+          setLike(true);
         }
-        }
-    );
-
-  }, [like])
-
+      });
+      console.log('test');
+  }, [like, _id, authenticate._id]);
 
   const likes = () => {
     if (like === false) {
       setLike((x) => !x);
       const user = authenticate._id;
-      liked.likeS({ user, idProduct: _id, title, brand, price, imageUrl }).then();
+      liked
+        .likeS({ user, idProduct: _id, title, brand, price, imageUrl })
+        .then();
     } else if (like === true) {
-      setLike((x) => !x); 
-      const user = authenticate._id;
-      liked.likeS( _id).then();
+      setLike((x) => !x);
+      liked.deleteL(_id);
     }
   };
   return (

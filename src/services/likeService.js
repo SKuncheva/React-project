@@ -9,7 +9,7 @@ export const get = async () => {
   return likedProduct;
 };
 export const deleteL = async (id) => {
-    const likedProduct = await request.del(`http://localhost:3030/data/likes/${id}`);
-    return likedProduct;
+    const delProduct = await request.del(`http://localhost:3030/data/likes/${id}`);
+    return delProduct;
   };
 

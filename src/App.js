@@ -45,7 +45,7 @@ function App() {
       setAuthenticate(resData);
       navigate("/");
     } catch (error) {
-      console.log(error);
+      alert("Грешни данни");
     }
   };
   const onLogout = () => {
