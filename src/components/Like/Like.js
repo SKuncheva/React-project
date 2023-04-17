@@ -9,7 +9,11 @@ export const Like = () => {
   const currentUser = authenticate._id;
 
   useEffect(() => {
-    getliked.get().then((result) => setProduct(result));
+    getliked.get().then((result) => {
+      if (result.length > 0) {
+        setProduct(result);
+      }
+    });
   }, []);
 
   const el = product.filter((x) => {
@@ -43,7 +47,9 @@ export const Like = () => {
         </div>
       ) : (
         <div className={style.wrapper}>
-          <p style={{fontSize:'22px', fontWeight:'bold' }}>Нямате харесани продукти</p>
+          <p style={{ fontSize: "22px", fontWeight: "bold" }}>
+            Нямате харесани продукти
+          </p>
         </div>
       )}
     </>

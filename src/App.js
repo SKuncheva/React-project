@@ -19,7 +19,7 @@ import { Profile } from "./components/Profile/Profile";
 import { EditProduct } from "./components/EditProduct/EditProduct";
 import { DeleteProduct } from "./components/DeleteProduct/DeleteProduc";
 import { Like } from "./components/Like/Like";
-
+import { Guard } from "./components/Guard/RouteGuard";
 
 function App() {
   const [authenticate, setAuthenticate] = useStorige("authenticate", {});
@@ -63,21 +63,25 @@ function App() {
         }}
       >
         <Header />
-       
+
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/catalog" element={<Catalog />} />
-          <Route path="/products/:id" element={<ProductDetail />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/create" element={<CreateProduct />} />
-          <Route path="/products/:id/edit" element={<EditProduct />} />
-          <Route path="/products/products/:id" element={<DeleteProduct/>} />
-          <Route path="/likes" element={<Like/>} />
-          <Route path="/about" element={<About />} />
-          <Route path="/protection" element={<Protection />} />
-          <Route path="/logout" element={<Logout />} />
+          <Route path="/catalog" element={<Catalog />} />
+          <Route path="/products/:id" element={<ProductDetail />} />
+
+            <Route element={<Guard />}>
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/create" element={<CreateProduct />} />
+            <Route path="/products/:id/edit" element={<EditProduct />} />
+            <Route path="/products/products/:id" element={<DeleteProduct />} />
+            <Route path="/likes" element={<Like />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/protection" element={<Protection />} />
+            <Route path="/logout" element={<Logout />} />
+            </Route>
+
         </Routes>
 
         <Footer />

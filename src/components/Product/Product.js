@@ -5,10 +5,12 @@ import { UserAuthenticate } from "../../context/context";
 import { useContext, useEffect, useState } from "react";
 import * as liked from "../../services/likeService";
 import * as request from "../../services/requester";
+import { login } from "../../services/authenticationService";
 
 export const Product = ({ _id, imageUrl, title, brand, price, _ownerId }) => {
   const { authenticate } = useContext(UserAuthenticate);
   const [like, setLike] = useState(false);
+  let idLike = 0;
 
   useEffect(() => {
     request
@@ -16,25 +18,24 @@ export const Product = ({ _id, imageUrl, title, brand, price, _ownerId }) => {
         `http://localhost:3030/data/likes/?where=idProduct IN ("${_id}")  AND _ownerId  IN ("${authenticate._id}")`
       )
       .then((result) => {
-        if (result[0] === undefined) {
-          return {};
-        } else if (result && result[0].user) {
+        if (result && result[0]._id) {
+          idLike = result[0]._id;
           setLike(true);
+
         }
       });
-      console.log('test');
   }, [like, _id, authenticate._id]);
 
-  const likes = () => {
+  const likes = async () => {
     if (like === false) {
-      setLike((x) => !x);
       const user = authenticate._id;
       liked
         .likeS({ user, idProduct: _id, title, brand, price, imageUrl })
         .then();
-    } else if (like === true) {
       setLike((x) => !x);
-      liked.deleteL(_id);
+    } else if (like === true) {
+      liked.deleteL(idLike);
+      setLike((x) => !x);
     }
   };
   return (
