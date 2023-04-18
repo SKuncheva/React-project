@@ -29,8 +29,6 @@ export const EditProduct = () => {
   
   };
 
-
-
   return (
     <>
       <section className={style.wrapper}>

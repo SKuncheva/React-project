@@ -20,6 +20,7 @@ import { EditProduct } from "./components/EditProduct/EditProduct";
 import { DeleteProduct } from "./components/DeleteProduct/DeleteProduc";
 import { Like } from "./components/Like/Like";
 import { Guard } from "./components/Guard/RouteGuard";
+import { Cart } from "./components/Cart/Cart";
 
 function App() {
   const [authenticate, setAuthenticate] = useStorige("authenticate", {});
@@ -80,6 +81,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/protection" element={<Protection />} />
             <Route path="/logout" element={<Logout />} />
+            <Route path="/buy" element={<Cart/>} />
             </Route>
 
         </Routes>

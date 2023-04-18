@@ -1,0 +1,41 @@
+.wrapper {
+  margin: 15px 56px;
+  min-width: 150px;
+  min-height: 500px;
+  border-bottom: 2px solid black;
+
+}
+.img {
+  max-width: 100px;
+  max-height: 200px;
+}
+.image {
+  max-width: 180px;
+  height: 200px;
+  margin: 10px 20px;
+  overflow: hidden;
+  object-fit: contain;
+}
+.li {
+  list-style: none;
+}
+.el {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.total {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 170px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.p{
+  width: 500;
+  padding: 155px 653px;
+  font-size: 22px;
+  font-weight: bold;
+  min-height: 50px;
+}

@@ -4,11 +4,13 @@ import * as details from "../../services/productDetalService";
 import style from "./ProductDetail.module.css";
 import { UserAuthenticate } from "../../context/context";
 import { useContext } from "react";
+import * as buy from "../../services/buyService";
 
 export const ProductDetail = () => {
   const { authenticate } = useContext(UserAuthenticate);
 
   const [currentProduct, setCurrentProduct] = useState({});
+  const [buyPr, setBuyPr] = useState(false);
   const { id } = useParams();
 
   useEffect(() => {
@@ -17,9 +19,12 @@ export const ProductDetail = () => {
     });
   }, [id]);
 
-
-  //  TODO:
-  const onClikBuyButton = () => {};
+  
+  const onClikBuyButton = (e) => {
+    e.preventDefault();
+    buy.buyProducts(currentProduct);
+    setBuyPr(true);
+  };
 
   return (
     <div className={style.wrapper}>
@@ -40,9 +45,10 @@ export const ProductDetail = () => {
       {authenticate.accessToken &&
         authenticate._id !== currentProduct._ownerId && (
           <div className={style.buttonWrapper}>
+            {buyPr===false ? (
             <button className={style.button} onClick={onClikBuyButton}>
               Купи
-            </button>
+            </button>): null}
           </div>
         )}
       {/* ------------------------- Image----------------------- */}

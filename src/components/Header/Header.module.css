@@ -1,3 +1,5 @@
+
+
 .header {
   font-family: Georgia, serif;
   display: flex;
@@ -55,7 +57,7 @@
 .users_element {
   display: flex;
   flex-direction: row;
-  justify-content: end;
+  justify-content: flex-end;
   margin-left: 200px;
   margin-right: 100px;
   text-align: center;

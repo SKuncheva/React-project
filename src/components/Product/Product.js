@@ -5,7 +5,7 @@ import { UserAuthenticate } from "../../context/context";
 import { useContext, useEffect, useState } from "react";
 import * as liked from "../../services/likeService";
 import * as request from "../../services/requester";
-import { login } from "../../services/authenticationService";
+
 
 export const Product = ({ _id, imageUrl, title, brand, price, _ownerId }) => {
   const { authenticate } = useContext(UserAuthenticate);
@@ -18,7 +18,7 @@ export const Product = ({ _id, imageUrl, title, brand, price, _ownerId }) => {
         `http://localhost:3030/data/likes/?where=idProduct IN ("${_id}")  AND _ownerId  IN ("${authenticate._id}")`
       )
       .then((result) => {
-        if (result && result[0]._id) {
+        if (Array.isArray(result) && result.length > 0) {
           idLike = result[0]._id;
           setLike(true);
 

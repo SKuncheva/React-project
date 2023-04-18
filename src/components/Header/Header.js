@@ -1,4 +1,5 @@
 import logo from "./images/logo.png";
+// eslint-disable-next-line
 import style from "./Header.module.css";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
@@ -63,6 +64,12 @@ export const Header = () => {
                   <Link to="/create" className={style.element_user}>
                     <i className="fas fa-plus" style={{ margin: "0 2px" }} />
                     {/* Добави */}
+                  </Link>
+                </li>
+                <li className={style.user_el}>
+                  <Link to="/buy" className={style.element_user}>
+                    <i className="fas fa-shopping-cart" style={{ margin: "0 2px" }} />
+                    {/* Количка */}
                   </Link>
                 </li>
                 <li className={style.user_el}>
